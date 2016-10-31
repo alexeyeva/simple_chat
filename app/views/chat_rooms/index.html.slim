@@ -1,7 +1,8 @@
 h1 = "Chat rooms"
 
-p.lead
-  = link_to 'New chat room', new_chat_room_path, class: 'btn btn-primary'
+table.table.table-hover
+  tbody
+    = render @chat_rooms
 
-ul
-  = render @chat_rooms
+p.lead.pull-xs-right
+  = link_to 'New chat room', new_chat_room_path, class: 'btn btn-primary'

@@ -1,2 +1,22 @@
-li
-  = link_to "Enter #{chat_room.title}", chat_room_path(chat_room)
+/ tr.clickable-row data-href="#{chat_room_path(chat_room)}"
+/   th scope="row"
+/     = chat_room.id
+/   td
+/     | Enter 
+/     = chat_room.title
+
+tr onclick="window.location='#{chat_room_path(chat_room)}'"
+  th scope="row"
+    = chat_room.id
+  td
+    | Enter 
+    = chat_room.title
+
+
+javascript:
+
+  jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+      window.location = $(this).data("href");
+    });
+  });

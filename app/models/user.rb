@@ -7,8 +7,10 @@ class User < ApplicationRecord
   has_many :chat_rooms, dependent: :destroy
   has_many :messages, dependent: :destroy
 
+  validates :nickname, uniqueness: true
+
   def name
-    email.split('@')[0]
+    !nickname.nil? ? nickname : email.split('@')[0]
   end
-  
+
 end

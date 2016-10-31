@@ -10,28 +10,9 @@ html
   body
 
     = render partial: "layouts/alerts"
-    
-    nav.navbar.navbar-dark.bg-inverse
-      = link_to "My chat", root_path, class: 'navbar-brand'
-
-      - if user_signed_in?
-        ul.nav.navbar-nav.pull-xs-right.nav-inline
-          li.nav-item
-            span.text-muted 
-              = "Logged in as "
-              strong = current_user.name
-
-          li.nav-item
-            = link_to "Profile", edit_user_registration_path(current_user), class: 'nav-link'
-
-          li.nav-item.active
-            = link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link'
-
+    = render partial: "layouts/navigation"
 
     .container
       = yield
 
-    footer
-      span.text-multed.footer-right
-        = "Created by "
-        = link_to "K.A.", "https://github.com/alexeyeva"
+    = render partial: "layouts/footer"
